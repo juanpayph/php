@@ -49,7 +49,7 @@ foreach ($myPost as $key => $value) {
 // Without this step anyone can fake DPN data
 
 if(USE_SANDBOX == true) {
-	$juanpay_url = "http://localhost:3000/dpn/validate";
+	$juanpay_url = "https://sandbox.juanpay.ph/dpn/validate";
 } else {
 	$juanpay_url = "https://www.juanpay.ph/dpn/validate";
 }
