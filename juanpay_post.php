@@ -1,4 +1,5 @@
 <?php
+    include_once "juanpay_config.php";
     include_once "juanpay_hash.php";
     ksort($_POST);
     $hashedvalue = juanpay_hash($_POST);
@@ -10,7 +11,7 @@
 <META HTTP-EQUIV="PRAGMA" CONTENT="no-store, no-cache, must-revalidate">
 <body onload="document.order.submit()">
 <body>
-	<form name="order" action="https://sandbox.juanpay.ph/checkout" method="post">
+	<form name="order" action="<?=JUANPAY_URL?>/checkout"  method="post">
 	<?	
 		foreach($_POST as $key => $value) {
 			if (strlen($value) > 0) {

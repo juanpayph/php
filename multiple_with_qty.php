@@ -1,6 +1,10 @@
+<?
+ include_once "juanpay_config.php";
+?>
+
 <html>
 <form action="juanpay_post.php" method="post">
-JuanPay Account Email <input type="text" name="email" value="rtfiel@agile.com.ph"><br>
+JuanPay Account Email <input type="text" name="email" value="<?=JUANPAY_ACCOUNT_EMAIL?>"><br>
 Order Number <input type="text" name="order_number" value="24g42323"><br>
 Form Option <input type="text" name="confirm_form_option" value="NONE"><br>
 Item Name 1 <input type="text" name="item_name_1" value="White Pillow"><br>

@@ -1,17 +1,9 @@
 <?php
-
+include_once "juanpay_config.php";
 include "juanpay_hash.php";
 // CONFIG: Enable debug mode. This means we'll log requests into 'dpn.log' in the same directory.
 // Especially useful if you encounter network errors or other intermittent problems with DPN (validation).
 // Set this to 0 once you go live or don't require logging.
-define("DEBUG", 1);
-
-// Set to 0 once you're ready to go live
-define("USE_SANDBOX", 1);
-
-
-define("LOG_FILE", "/tmp/dpn.log");
-
 
 // Read POST data
 // reading posted data directly from $_POST causes serialization
@@ -48,11 +40,7 @@ foreach ($myPost as $key => $value) {
 // Post DPN data back to JuanPay to validate the DPN data is genuine
 // Without this step anyone can fake DPN data
 
-if(USE_SANDBOX == true) {
-	$juanpay_url = "https://sandbox.juanpay.ph/dpn/validate";
-} else {
-	$juanpay_url = "https://www.juanpay.ph/dpn/validate";
-}
+$juanpay_url = JUANPAY_URL."/dpn/validate";
 
 $ch = curl_init($juanpay_url);
 if ($ch == FALSE) {

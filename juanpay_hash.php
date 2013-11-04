@@ -1,6 +1,7 @@
 <?
+   include_once "juanpay_config.php";
    function juanpay_hash($params) {
-	$API_Key = "a4717475e363ce6790d013d1d8c7c0c4";
+	$API_Key = API_KEY;
 	$md5HashData = $API_Key;
 	$hashedvalue = '';
 	foreach($params as $key => $value) {
