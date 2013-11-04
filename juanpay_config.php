@@ -6,8 +6,7 @@
  define("LOG_FILE", "/tmp/dpn.log");
 
  if (USE_SANDBOX==1) {
-   #define('JUANPAY_URL', 'https://sandbox.juanpay.ph');
-   define('JUANPAY_URL', 'http://localhost:3000');
+   define('JUANPAY_URL', 'https://sandbox.juanpay.ph');
  }
  else {
    define('JUANPAY_URL', 'https://www.juanpay.ph');
