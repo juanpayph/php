@@ -10,7 +10,7 @@
 <META HTTP-EQUIV="PRAGMA" CONTENT="no-store, no-cache, must-revalidate">
 <body onload="document.order.submit()">
 <body>
-	<form name="order" action="http://localhost:3000/checkout" method="post">
+	<form name="order" action="https://sandbox.juanpay.ph/checkout" method="post">
 	<?	
 		foreach($_POST as $key => $value) {
 			if (strlen($value) > 0) {
