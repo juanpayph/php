@@ -51,8 +51,6 @@ curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $req);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
 curl_setopt($ch, CURLOPT_FORBID_REUSE, 1);
 
 if(DEBUG == true) {
@@ -72,8 +70,14 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array('Connection: Close'));
 // of the certificate as shown below. Ensure the file is readable by the webserver.
 // This is mandatory for some environments.
 
-//$cert = __DIR__ . "./cacert.pem";
+//curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+//$cert = realpath(dirname(__FILE__)). "/cacert.pem";
 //curl_setopt($ch, CURLOPT_CAINFO, $cert);
+//error_log(date('[Y-m-d H:i e] '). "cert path " . $cert . PHP_EOL, 3, LOG_FILE);
+
+// simple solution for ssl but not secure
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 
 $res = curl_exec($ch);
 if (curl_errno($ch) != 0) // cURL error
